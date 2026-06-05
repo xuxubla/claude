@@ -16,9 +16,10 @@ class CompletionResponse(BaseModel):
 
 @app.post("/complete")
 def complete(req: CompletionRequest) -> CompletionResponse:
-    cmd = ["claude", "-p", req.prompt]
+    prompt = req.prompt
     if req.system:
-        cmd += ["--system", req.system]
+        prompt = f"{req.system}\n\n{req.prompt}"
+    cmd = ["claude", "-p", prompt, "--bare"]
     try:
         result = subprocess.run(
             cmd,
