@@ -6,9 +6,9 @@ services:
     environment:
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
     volumes:
-      - claude-home:/root/.claude
+      - claude-config:/root
     ports:
       - "8100:8000"
 
 volumes:
-  claude-home:
+  claude-config:
