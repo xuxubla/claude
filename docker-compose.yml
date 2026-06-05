@@ -1,0 +1,14 @@
+services:
+  claude-proxy:
+    build: .
+    container_name: claude-proxy
+    restart: unless-stopped
+    environment:
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    volumes:
+      - claude-home:/root/.claude
+    ports:
+      - "8100:8000"
+
+volumes:
+  claude-home:
