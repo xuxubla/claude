@@ -19,7 +19,7 @@ def complete(req: CompletionRequest) -> CompletionResponse:
     prompt = req.prompt
     if req.system:
         prompt = f"{req.system}\n\n{req.prompt}"
-    cmd = ["claude", "-p", prompt, "--bare"]
+    cmd = ["claude", "-p", prompt]
     try:
         result = subprocess.run(
             cmd,
