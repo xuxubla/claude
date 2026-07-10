@@ -37,7 +37,7 @@ docker compose up -d --build
 
 ## Авторизация Claude
 
-После первого запуска нужно авторизоваться один раз — авторизация сохраняется в Docker volume `claude-home` и переживает перезапуски контейнера.
+После первого запуска нужно авторизоваться один раз — авторизация сохраняется в Docker volume `claude-config` и переживает перезапуски контейнера.
 
 ```bash
 docker exec -it claude-proxy claude /login
