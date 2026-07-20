@@ -1,3 +1,5 @@
+name: claude-proxy
+
 services:
   claude-proxy:
     build: .
